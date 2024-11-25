@@ -1,14 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
-
+import Header from "./Components/Header/Header";
+import "./index.css";
+import "./Fonts/Fonts.css";
+import Hero from "./Components/Hero/Hero";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>asrorbeck v0.0.1</p>
-        <p>loading...</p>
-      </header>
+      <Header />
+      <Hero />
     </div>
   );
 }

@@ -1,0 +1,72 @@
+.header {
+  margin-top: 25px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__link {
+    color: #7f7f7f;
+    font-family: regular;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #162232;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-family: semiBold;
+    color: #162232;
+  }
+
+  &__burger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* Default hamburger (☰) */
+    &::before {
+      content: "☰";
+    }
+
+    /* Transform to X when menu is active */
+    &.active::before {
+      content: "×"; /* The X symbol */
+    }
+  }
+
+  @media (max-width: 550px) {
+    &__list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 75px;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding-top: 20px;
+      padding-bottom: 20px;
+      z-index: 10;
+    }
+
+    &__list--active {
+      display: flex;
+    }
+
+    &__burger {
+      display: block;
+    }
+  }
+}

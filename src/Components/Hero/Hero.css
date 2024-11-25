@@ -27,6 +27,7 @@
   font-family: medium;
   color: #7f7f7f;
   text-align: center;
+  margin-bottom: 25px;
 }
 .hero__header {
   font-family: bold;
@@ -71,7 +72,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90vh;
+  height: 88vh;
 }
 
 @media (max-width: 550px) {

@@ -48,7 +48,7 @@ const Header = () => {
                 target="_blank"
                 className="header__link"
               >
-                Zypherix
+                ZPX
               </a>
             </li>
             <li className="header__item">

@@ -26,6 +26,15 @@ const Header = () => {
           >
             <li className="header__item">
               <a
+                href="https://plain2do.com"
+                target="_blank"
+                className="header__link"
+              >
+                P2D
+              </a>
+            </li>
+            <li className="header__item">
+              <a
                 href="https://ssgroup.uz"
                 target="_blank"
                 className="header__link"

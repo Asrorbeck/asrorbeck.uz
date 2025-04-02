@@ -12,7 +12,7 @@ const Header = () => {
     <div className="header">
       <div className="container">
         <div className="header__container">
-          <a href="#" className="header__logo">
+          <a href="/" className="header__logo">
             Asrorbek's Blog
           </a>
           <div
@@ -35,20 +35,11 @@ const Header = () => {
             </li>
             <li className="header__item">
               <a
-                href="https://ssgroup.uz"
+                href="https://ssgroup-corp.com"
                 target="_blank"
                 className="header__link"
               >
                 SSG
-              </a>
-            </li>
-            <li className="header__item">
-              <a
-                href="https://zypherix.uz"
-                target="_blank"
-                className="header__link"
-              >
-                ZPX
               </a>
             </li>
             <li className="header__item">

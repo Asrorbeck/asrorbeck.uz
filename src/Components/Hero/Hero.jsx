@@ -75,10 +75,10 @@ const Hero = () => {
             </p>
 
             <div className="hero__btn-wrapper">
-              <a href="#" className="hero__read">
+              <a href="https://t.me/Asrorbeck_AT" className="hero__read">
                 Read Blog
               </a>
-              <a href="#" className="hero__about">
+              <a href="https://t.me/Asrorbeck_AT" className="hero__about">
                 About Me
               </a>
             </div>

@@ -1,13 +1,22 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
+import Hero from "./Components/Hero/Hero";
 import "./index.css";
 import "./Fonts/Fonts.css";
-import Hero from "./Components/Hero/Hero";
+import BlogEditor from "./Components/Test/Test";
+
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          {/* <Route path="/test" element={<BlogEditor />} />{" "} */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e4377bac.css",
-    "main.js": "/static/js/main.befa86e6.js",
+    "main.css": "/static/css/main.c2963a66.css",
+    "main.js": "/static/js/main.592d7482.js",
     "static/media/NunitoSans_7pt-SemiBold.ttf": "/static/media/NunitoSans_7pt-SemiBold.9c621098613423154fdf.ttf",
     "static/media/NunitoSans_7pt-Bold.ttf": "/static/media/NunitoSans_7pt-Bold.c2711dd0be4514a4eaf6.ttf",
     "static/media/NunitoSans_7pt-Medium.ttf": "/static/media/NunitoSans_7pt-Medium.23e7a6fbf39113d4bda0.ttf",
@@ -12,11 +12,11 @@
     "static/media/github.svg": "/static/media/github.1a287ee81364c143bf4c05eea9311303.svg",
     "static/media/youtube.svg": "/static/media/youtube.b608b9fa29eeb8e1f56fc7a886a19dfc.svg",
     "index.html": "/index.html",
-    "main.e4377bac.css.map": "/static/css/main.e4377bac.css.map",
-    "main.befa86e6.js.map": "/static/js/main.befa86e6.js.map"
+    "main.c2963a66.css.map": "/static/css/main.c2963a66.css.map",
+    "main.592d7482.js.map": "/static/js/main.592d7482.js.map"
   },
   "entrypoints": [
-    "static/css/main.e4377bac.css",
-    "static/js/main.befa86e6.js"
+    "static/css/main.c2963a66.css",
+    "static/js/main.592d7482.js"
   ]
 }

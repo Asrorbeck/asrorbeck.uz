@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import photo from "../../Images/photo.png";
 import youtube from "../../Images/youtube.svg";
 import github from "../../Images/github.svg";
@@ -75,9 +76,9 @@ const Hero = () => {
             </p>
 
             <div className="hero__btn-wrapper">
-              <a href="https://t.me/Asrorbeck_AT" className="hero__read">
+              <Link to="/blog" className="hero__read">
                 Read Blog
-              </a>
+              </Link>
               <a href="https://t.me/Asrorbeck_AT" className="hero__about">
                 About Me
               </a>

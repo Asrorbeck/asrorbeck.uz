@@ -33,7 +33,7 @@
 }
 
 .blog-post__back-link:hover {
-  color: #10b981;
+  color: #4285F4;
 }
 
 .blog-post__article {
@@ -155,7 +155,7 @@
 
 .blog-post__nav-btn {
   background: #ffffff;
-  color: #10b981;
+  color: #4285F4;
   text-decoration: none;
   padding: 12px 24px;
   font-weight: 400;
@@ -173,7 +173,7 @@
 
 .blog-post__see-more {
   background: #ffffff;
-  color: #10b981;
+  color: #4285F4;
 }
 
 .blog-post__next {
@@ -240,7 +240,7 @@
 }
 
 .dark .blog-post__back-link:hover {
-  color: #10b981;
+  color: #4285F4;
 }
 
 .dark .blog-post__article {
@@ -305,13 +305,13 @@
 
 .dark .blog-post__nav-btn {
   background: #2a2a2a;
-  color: #10b981;
+  color: #4285F4;
   border: 1px solid #444444;
 }
 
 .dark .blog-post__see-more {
   background: #2a2a2a;
-  color: #10b981;
+  color: #4285F4;
 }
 
 .dark .blog-post__disabled {

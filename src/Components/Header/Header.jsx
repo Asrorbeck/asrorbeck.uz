@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
+import { settingsService } from "../../services/settingsService";
+import { navigationService } from "../../services/navigationService";
 import "./Header.css";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [siteName, setSiteName] = useState("Asrorbek's Blog");
+  const [navigationItems, setNavigationItems] = useState([]);
   const { isDarkMode, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
@@ -22,12 +26,32 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const fetchSettings = async () => {
+      const { data } = await settingsService.get();
+      if (data?.site_name) {
+        setSiteName(data.site_name);
+      }
+    };
+    fetchSettings();
+  }, []);
+
+  useEffect(() => {
+    const fetchNavigation = async () => {
+      const { data } = await navigationService.getAll();
+      if (data) {
+        setNavigationItems(data || []);
+      }
+    };
+    fetchNavigation();
+  }, []);
+
   return (
     <div className={`header ${isScrolled ? "header--scrolled" : ""}`}>
       <div className="container">
         <div className="header__container">
           <Link to="/" className="header__logo">
-            Asrorbek's Blog
+            {siteName}
           </Link>
           <div className="header__right">
             <button
@@ -58,20 +82,24 @@ const Header = () => {
                 menuActive ? "header__list--active" : ""
               }`}
             >
-              <li className="header__item">
-                <a
-                  href="https://ssgroup-corp.com"
-                  target="_blank"
-                  className="header__link"
-                >
-                  SSG
-                </a>
-              </li>
-              <li className="header__item">
-                <Link to="/blog" className="header__link">
-                  Blog
-                </Link>
-              </li>
+              {navigationItems.map((item) => (
+                <li key={item.id} className="header__item">
+                  {item.is_external ? (
+                    <a
+                      href={item.url}
+                      target={item.target_blank ? "_blank" : "_self"}
+                      rel={item.target_blank ? "noopener noreferrer" : ""}
+                      className="header__link"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link to={item.url} className="header__link">
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
             <div
               className={`header__burger ${menuActive ? "active" : ""}`}

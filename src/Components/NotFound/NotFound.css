@@ -1,0 +1,139 @@
+.not-found {
+  height: calc(100vh - 80px);
+  background: #ffffff;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.not-found__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.not-found__content {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px 20px;
+}
+
+.not-found__title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 8rem;
+  line-height: 1;
+  color: #4285f4;
+  margin: 0 0 20px 0;
+  letter-spacing: -2px;
+}
+
+.not-found__subtitle {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 2rem;
+  color: #333333;
+  margin: 0 0 16px 0;
+}
+
+.not-found__message {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+}
+
+.not-found__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.not-found__button {
+  padding: 12px 32px;
+  border-radius: 5px;
+  font-family: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.not-found__button--primary {
+  background-color: #4285f4;
+  color: #ffffff;
+}
+
+.not-found__button--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.not-found__button--secondary {
+  border: 2px solid #4285f4;
+  color: #4285f4;
+  background-color: transparent;
+}
+
+.not-found__button--secondary:hover {
+  background-color: #4285f4;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Dark mode styles */
+.dark .not-found {
+  background: #1a1a1a;
+}
+
+.dark .not-found__subtitle {
+  color: #ffffff;
+}
+
+.dark .not-found__message {
+  color: #cccccc;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .not-found__title {
+    font-size: 6rem;
+  }
+
+  .not-found__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .not-found__message {
+    font-size: 1rem;
+  }
+
+  .not-found__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .not-found__button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found__title {
+    font-size: 4rem;
+  }
+
+  .not-found__subtitle {
+    font-size: 1.3rem;
+  }
+}
+

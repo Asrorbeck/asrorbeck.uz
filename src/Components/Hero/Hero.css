@@ -1,9 +1,9 @@
 .hero__about {
-  padding: 8px 28px;
-  border: 2px solid #10b981;
+  padding: 10px 30px;
+  border: 2px solid #4285f4;
   border-radius: 5px;
   font-family: bold;
-  color: #10b981;
+  color: #4285f4;
   transition: all 0.3s ease;
 }
 .hero__about:hover {
@@ -46,7 +46,7 @@
 }
 .hero__read {
   padding: 10px 30px;
-  background-color: #10b981;
+  background-color: #4285f4;
   border-radius: 5px;
   font-family: bold;
   color: #fff;
@@ -92,13 +92,18 @@
   color: #999999;
 }
 
+.hero__link:hover .hero__img-link {
+  filter: sepia(1) saturate(5) hue-rotate(220deg);
+  transition: all 0.3s ease;
+}
+
 .dark .hero__img-link {
   filter: brightness(0) invert(1);
   transition: all 0.3s ease;
 }
 
 .dark .hero__link:hover .hero__img-link {
-  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(120deg);
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(220deg);
 }
 
 @media (max-width: 550px) {

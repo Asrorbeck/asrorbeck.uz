@@ -63,7 +63,7 @@
 }
 
 .blog__sidebar-link {
-  color: #10b981;
+  color: #4285F4;
   text-decoration: none;
   font-weight: 500;
 }
@@ -165,7 +165,7 @@
 .blog__post-item:hover .blog__post-arrow {
   opacity: 1;
   transform: translateX(0);
-  color: #10b981;
+  color: #4285F4;
 }
 
 .blog__post-item:last-child {
@@ -191,7 +191,7 @@
 }
 
 .blog__post-item:hover .blog__post-title {
-  color: #10b981;
+  color: #4285F4;
 }
 
 /* Dark mode styles */
@@ -238,7 +238,7 @@
 }
 
 .dark .blog__post-item:hover .blog__post-title {
-  color: #10b981;
+  color: #4285F4;
 }
 
 .dark .blog__post-arrow {
@@ -246,7 +246,7 @@
 }
 
 .dark .blog__post-item:hover .blog__post-arrow {
-  color: #10b981;
+  color: #4285F4;
 }
 
 /* Responsive design */

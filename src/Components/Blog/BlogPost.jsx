@@ -1,17 +1,38 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { useEffect } from "react";
-import { blogPosts } from "../../data/blogData";
+import { useEffect, useState } from "react";
+import { blogService } from "../../services/blogService";
 import "./BlogPost.css";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const post = blogPosts.find((post) => post.slug === slug);
+  const [post, setPost] = useState(null);
+  const [allPosts, setAllPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const { data, error } = await blogService.getBySlug(slug);
+      if (error || !data) {
+        setPost(null);
+      } else {
+        setPost(data);
+      }
+
+      // Fetch all posts for navigation
+      const { data: postsData } = await blogService.getAll();
+      if (postsData) {
+        setAllPosts(postsData);
+      }
+      setLoading(false);
+    };
+    fetchPost();
+  }, [slug]);
 
   // Find previous and next posts
-  const currentIndex = blogPosts.findIndex((post) => post.slug === slug);
-  const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
   const nextPost =
-    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   // Update document title and meta tags
   useEffect(() => {
@@ -80,6 +101,18 @@ const BlogPost = () => {
       document.title = "Asrorbek's Blog";
     };
   }, [post]);
+
+  if (loading) {
+    return (
+      <div className="blog-post">
+        <div className="container">
+          <div style={{ textAlign: "center", padding: "100px 20px" }}>
+            Yuklanmoqda...
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return <Navigate to="/blog" replace />;

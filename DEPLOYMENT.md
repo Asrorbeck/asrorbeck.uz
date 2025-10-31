@@ -50,10 +50,16 @@ Agar custom domain ishlatmoqchi bo'lsangiz:
 ## 5. Build jarayoni
 
 GitHub Actions avtomatik ravishda:
-
 - Dependencies'ni o'rnatadi
 - Environment variables'lar bilan build qiladi
+- `index.html` ni `404.html` ga ko'chiradi (SPA route'lar uchun)
 - GitHub Pages'ga deploy qiladi
+
+## 6. SPA Route'lar bilan ishlash
+
+React Router ishlatilgani uchun, GitHub Pages'da barcha route'lar to'g'ri ishlashi uchun:
+- `index.html` ni `404.html` ga ko'chirish avtomatik amalga oshiriladi
+- Bu orqali `/admin`, `/blog` va boshqa route'lar ishlaydi
 
 ## Eslatmalar
 
@@ -71,3 +77,7 @@ Agar deploy ishlamasa:
 3. Environment variable nomlari to'g'ri ekanligini tekshiring
    - `REACT_APP_SUPABASE_URL`
    - `REACT_APP_SUPABASE_ANON_KEY`
+
+Agar route'lar ishlamasa:
+- `404.html` fayl mavjudligini tekshiring
+- GitHub Pages **Settings** → **Pages** da custom domain to'g'ri sozlanganligini tekshiring

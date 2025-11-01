@@ -37,8 +37,13 @@ jobs:
           REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.REACT_APP_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      - name: Copy index.html to 404.html for GitHub Pages SPA support
-        run: cp build/index.html build/404.html
+      - name: Create 404.html for GitHub Pages SPA support
+        run: |
+          # Build qilingan index.html ni 404.html ga ko'chirish
+          cp build/index.html build/404.html
+          # Fayl mavjudligini tekshirish
+          ls -la build/404.html
+          echo "404.html fayl muvaffaqiyatli yaratildi"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -58,4 +63,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

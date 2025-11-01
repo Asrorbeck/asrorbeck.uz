@@ -53,7 +53,7 @@ const BlogPost = () => {
         document.head.appendChild(newMetaDescription);
       }
 
-      // Update Open Graph meta tags
+      // Helper function to update or create meta tags
       const updateOrCreateMeta = (property, content) => {
         let meta = document.querySelector(`meta[property="${property}"]`);
         if (meta) {
@@ -66,13 +66,7 @@ const BlogPost = () => {
         }
       };
 
-      updateOrCreateMeta("og:title", post.title);
-      updateOrCreateMeta("og:description", post.excerpt);
-      updateOrCreateMeta("og:type", "article");
-      updateOrCreateMeta("og:url", window.location.href);
-
-      // Update Twitter Card meta tags
-      const updateOrCreateTwitterMeta = (name, content) => {
+      const updateOrCreateMetaName = (name, content) => {
         let meta = document.querySelector(`meta[name="${name}"]`);
         if (meta) {
           meta.setAttribute("content", content);
@@ -84,9 +78,85 @@ const BlogPost = () => {
         }
       };
 
-      updateOrCreateTwitterMeta("twitter:card", "summary");
-      updateOrCreateTwitterMeta("twitter:title", post.title);
-      updateOrCreateTwitterMeta("twitter:description", post.excerpt);
+      // Extract image from post content or use default
+      const extractImageFromContent = (htmlContent) => {
+        if (!htmlContent) return null;
+        const imgMatch = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
+        return imgMatch ? imgMatch[1] : null;
+      };
+
+      // Get featured image or extract from content or use default
+      const postImage =
+        post.featured_image ||
+        post.image_url ||
+        extractImageFromContent(post.content) ||
+        null;
+
+      // Build absolute image URL
+      const baseUrl = window.location.origin;
+      const ogImage = postImage
+        ? postImage.startsWith("http")
+          ? postImage
+          : postImage.startsWith("/")
+          ? `${baseUrl}${postImage}`
+          : `${baseUrl}/${postImage}`
+        : `${baseUrl}/logo512.png`; // Default logo if no image
+
+      // Ensure og:image is absolute URL
+      const finalOgImage = ogImage.startsWith("http")
+        ? ogImage
+        : `${baseUrl}${ogImage}`;
+
+      // Open Graph meta tags
+      updateOrCreateMeta("og:title", post.title);
+      updateOrCreateMeta("og:description", post.excerpt || post.title);
+      updateOrCreateMeta("og:type", "article");
+      updateOrCreateMeta("og:url", window.location.href);
+      updateOrCreateMeta("og:image", finalOgImage);
+      updateOrCreateMeta("og:image:secure_url", finalOgImage);
+      updateOrCreateMeta("og:image:type", "image/png");
+      updateOrCreateMeta("og:image:width", "1200");
+      updateOrCreateMeta("og:image:height", "630");
+      updateOrCreateMeta("og:site_name", "asrorbeck.uz");
+      updateOrCreateMeta("og:locale", "uz_UZ");
+
+      // Article specific meta tags
+      if (post.date) {
+        updateOrCreateMeta(
+          "article:published_time",
+          new Date(post.date).toISOString()
+        );
+      }
+      updateOrCreateMeta("article:author", "Asrorbek Tursunpulatov");
+      updateOrCreateMeta("article:section", "Blog");
+
+      // Twitter Card meta tags
+      updateOrCreateMetaName("twitter:card", "summary_large_image");
+      updateOrCreateMetaName("twitter:title", post.title);
+      updateOrCreateMetaName("twitter:description", post.excerpt || post.title);
+      updateOrCreateMetaName("twitter:image", finalOgImage);
+      updateOrCreateMetaName("twitter:site", "@asrorbeck");
+      updateOrCreateMetaName("twitter:creator", "@asrorbeck");
+
+      // Debug: Console'da tekshirish (faqat development'da)
+      if (process.env.NODE_ENV === "development") {
+        console.log("Open Graph Meta Tags Updated:", {
+          title: post.title,
+          description: post.excerpt,
+          image: finalOgImage,
+          url: window.location.href,
+        });
+        // Meta teglarni ko'rish
+        setTimeout(() => {
+          const ogTags = Array.from(
+            document.querySelectorAll('meta[property^="og:"]')
+          ).map((meta) => ({
+            property: meta.getAttribute("property"),
+            content: meta.getAttribute("content"),
+          }));
+          console.log("Current OG Tags:", ogTags);
+        }, 100);
+      }
     }
 
     // Scroll to top when component mounts

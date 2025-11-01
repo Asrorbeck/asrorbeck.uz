@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.b0fc79c4.css",
+    "main.css": "/static/css/main.3a2fdda2.css",
     "main.js": "/static/js/main.e21d18ae.js",
     "static/media/NunitoSans_7pt-SemiBold.ttf": "/static/media/NunitoSans_7pt-SemiBold.9c621098613423154fdf.ttf",
     "static/media/NunitoSans_7pt-Bold.ttf": "/static/media/NunitoSans_7pt-Bold.c2711dd0be4514a4eaf6.ttf",
@@ -12,11 +12,11 @@
     "static/media/github.svg": "/static/media/github.1a287ee81364c143bf4c05eea9311303.svg",
     "static/media/youtube.svg": "/static/media/youtube.b608b9fa29eeb8e1f56fc7a886a19dfc.svg",
     "index.html": "/index.html",
-    "main.b0fc79c4.css.map": "/static/css/main.b0fc79c4.css.map",
+    "main.3a2fdda2.css.map": "/static/css/main.3a2fdda2.css.map",
     "main.e21d18ae.js.map": "/static/js/main.e21d18ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0fc79c4.css",
+    "static/css/main.3a2fdda2.css",
     "static/js/main.e21d18ae.js"
   ]
 }
